@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../utils/axiosApiInstance";
 import { useState, useEffect } from "react";
 import {
   CardGroup,
