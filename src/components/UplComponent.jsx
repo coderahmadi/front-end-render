@@ -26,7 +26,7 @@ const UplComponent = () => {
     const data = new FormData(event.target);
     try {
       const res = await axios.post(
-        "http://localhost:3001/api/uploadImage",
+        `${axios.defaults.baseURL}/api/uploadImage`,
         data
       );
       setResponse(res.data.data);
@@ -38,7 +38,9 @@ const UplComponent = () => {
 
   const getFiveLatest = async () => {
     try {
-      let posts = await axios.get("http://localhost:3001/api/recentUploads");
+      let posts = await axios.get(
+        `${axios.defaults.baseURL}/api/recentUploads`
+      );
       setPosts(posts.data);
     } catch (error) {
       console.log("ERR", error.toString());
@@ -67,7 +69,9 @@ const UplComponent = () => {
             >
               <img
                 alt="Sample"
-                src={`http://localhost:3001` + `/api/getImgById/` + element._id}
+                src={
+                  `${axios.defaults.baseURL}` + `/api/getImgById/` + element._id
+                }
                 style={imgStyle}
               />
               <CardBody>
